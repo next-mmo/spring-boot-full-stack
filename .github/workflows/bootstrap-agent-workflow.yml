@@ -1,0 +1,142 @@
+name: Bootstrap Agent Workflow
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/bootstrap-agent-workflow.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  bootstrap:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Install pinned workflow CLI
+        run: npm install
+
+      - name: Initialize official workflow scaffold
+        run: npm exec -- agent-workflow init --existing
+
+      - name: Configure workflow for Maven multi-module project
+        shell: bash
+        run: |
+          cat > .agents/config.json <<'JSON'
+          {
+            "schemaVersion": 1,
+            "packageManager": "npm",
+            "paths": {
+              "product": [
+                "todo-domain/**",
+                "todo-application/**",
+                "todo-adapter-persistence/**",
+                "todo-adapter-web/**",
+                "todo-boot/**",
+                "frontend/**"
+              ],
+              "tests": [
+                "**/src/test/**",
+                "frontend/**/*.test.*",
+                "frontend/**/*.spec.*"
+              ],
+              "docs": [
+                "README.md",
+                "AGENT-QUICKSTART.md",
+                "docs/**",
+                ".agents/docs/**"
+              ],
+              "workflow": [
+                "AGENTS.md",
+                "CONTEXT.md",
+                ".agents/**",
+                "package.json",
+                "package-lock.json"
+              ],
+              "ci": [
+                ".github/**"
+              ],
+              "build": [
+                "pom.xml",
+                "**/pom.xml",
+                "package.json",
+                "package-lock.json",
+                "compose.yaml",
+                "Dockerfile*",
+                "**/Dockerfile*"
+              ]
+            },
+            "checks": {
+              "test": "mvn test",
+              "build": "mvn -DskipTests package",
+              "workflow": "npm run workflow:check --"
+            },
+            "contextBudgets": {
+              "AGENTS.md": 800,
+              "CONTEXT.md": 1400
+            },
+            "docBudgets": {
+              "AGENT-QUICKSTART.md": 2200,
+              "AGENTS.md": 800,
+              "CONTEXT.md": 1400,
+              ".agents/docs/AGENTS.md": 900,
+              ".agents/docs/architecture.md": 2000,
+              ".agents/docs/development.md": 1600,
+              ".agents/docs/testing.md": 1200,
+              ".agents/docs/defensive-patterns.md": 1400
+            },
+            "ignore": [
+              "**/target/**",
+              "node_modules/**",
+              "coverage/**",
+              "dist/**",
+              "**/*.min.js",
+              "**/*.min.css",
+              "**/*.map"
+            ],
+            "mode": "guided",
+            "archive": {
+              "autoArchiveDone": true,
+              "retentionDays": 14
+            }
+          }
+          JSON
+
+      - name: Run workflow doctor
+        run: npm exec -- agent-workflow doctor
+
+      - name: Discover installed skills
+        run: npm exec -- agent-workflow skills --json
+
+      - name: Remove one-time bootstrap workflow
+        run: rm .github/workflows/bootstrap-agent-workflow.yml
+
+      - name: Commit generated consumer scaffold
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No generated changes to commit"
+            exit 0
+          fi
+          git commit -m "chore: initialize Agent Workflow Scrum"
+          git push
