@@ -1,0 +1,21 @@
+# Java / Maven
+**/target/
+.mvn/timing.properties
+
+# Node / workflow CLI
+node_modules/
+npm-debug.log*
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local environment
+.env
+.env.*
+!.env.example

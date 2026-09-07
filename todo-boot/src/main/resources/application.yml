@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: todo-api
+  datasource:
+    url: ${TODO_DB_URL:jdbc:postgresql://localhost:5432/todo}
+    username: ${TODO_DB_USER:todo}
+    password: ${TODO_DB_PASSWORD:todo}
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+
+server:
+  port: ${PORT:8080}

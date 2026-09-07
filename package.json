@@ -1,0 +1,15 @@
+{
+  "name": "spring-boot-full-stack-learning",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Workflow tooling for the Spring Boot full-stack Todo learning project",
+  "scripts": {
+    "workflow:init": "agent-workflow init --existing",
+    "workflow:doctor": "agent-workflow doctor",
+    "workflow:skills": "agent-workflow skills --json",
+    "workflow:check": "agent-workflow check"
+  },
+  "devDependencies": {
+    "@next-mmo/agent-workflow-scrum": "git+https://github.com/next-mmo/agent-dev-workflow.git#318b0aa47bf74c58b11da468219e2fe6e828ea47"
+  }
+}
