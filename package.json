@@ -10,6 +10,6 @@
     "workflow:check": "agent-workflow check"
   },
   "devDependencies": {
-    "@next-mmo/agent-workflow-scrum": "git+https://github.com/next-mmo/agent-dev-workflow.git#318b0aa47bf74c58b11da468219e2fe6e828ea47"
+    "@next-mmo/agent-workflow-scrum": "git+https://github.com/next-mmo/agent-dev-workflow.git#8ebb2b220b624693a4b3c769c34aa873d2e79462"
   }
 }
