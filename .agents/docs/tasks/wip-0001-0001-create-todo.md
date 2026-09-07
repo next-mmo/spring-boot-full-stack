@@ -1,6 +1,6 @@
 # Task 0001: Create Todo Vertical Slice
 
-> Status: todo
+> Status: wip
 > Created: 2026-09-07
 > Related PRD: `.agents/docs/prd/0001-todo-core.md`
 
@@ -27,13 +27,21 @@
 
 ## Evidence Ledger
 
-No acceptance evidence has been recorded yet. This task is Ready, not Active, and no criteria are accepted.
+No acceptance evidence has been recorded yet. This task is Active, and no criteria are accepted.
 
 | Claim | Evidence | Result |
 | :--- | :--- | :--- |
 | Sprint 0 workflow scaffold | GitHub Actions bootstrap run `34106975572`; `agent-workflow doctor` step | Passed |
 | Product Maven/runtime baseline | Not yet executed as acceptance evidence | Pending |
 | Create Todo behavior | Not implemented | Pending |
+
+## Learning Checkpoint — 2026-09-07
+
+- Backend request flow: browser → web controller → application use case → domain → repository port → persistence adapter → PostgreSQL.
+- The domain owns the invariant that a Todo title cannot be blank.
+- The controller receives HTTP input and calls the application use case; the domain does not depend on the controller.
+- Next session: inspect the scaffold and begin the domain model from first principles. No product code or acceptance evidence has been added yet.
+- Environment note: Maven is not currently available on `PATH`, so the baseline build remains pending.
 
 ## Handoff
 

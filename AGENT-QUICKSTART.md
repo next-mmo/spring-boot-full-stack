@@ -25,6 +25,16 @@ This guide is for an AI coding agent working in a repository initialized with Ag
    ```
 
    npm installation does not activate host skills. If the host cannot load local skills, use the CLI directly; do not create or copy `.agents/skills`.
+
+   For Codex, `skills --json` only discovers the local bundle. The host must also have the plugin installed through a configured marketplace. After preparing a local marketplace that points to the reported plugin root, install and verify it with:
+
+   ```text
+   codex plugin marketplace add <marketplace-root>
+   codex plugin add agent-workflow-scrum@<marketplace-name>
+   codex plugin list
+   ```
+
+   This is separate from `agent-workflow init --existing`; the latter initializes only the repository scaffold. If host installation is unavailable, the project-local CLI remains the supported fallback.
 5. For the exact user request, generate bounded context before non-trivial work:
 
    ```text
