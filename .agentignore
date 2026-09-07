@@ -1,0 +1,20 @@
+# Dependency/build output
+node_modules/
+**/target/
+dist/
+coverage/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+
+# IDE / OS noise
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Logs and generated artifacts
+*.log
+*.tmp
