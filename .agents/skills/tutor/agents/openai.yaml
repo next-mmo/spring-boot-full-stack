@@ -1,0 +1,4 @@
+interface:
+  display_name: "Tutor Mode"
+  short_description: "Adapt repository lessons and preserve learner checkpoints"
+  default_prompt: "Use $tutor to resume my learner checkpoint at my experience level, distinguish it from website development, and record observed progress."

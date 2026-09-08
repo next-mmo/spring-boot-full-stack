@@ -2,10 +2,12 @@
 
 > Status: draft
 > Created: 2026-09-07
-> Updated: 2026-09-07
-> Related Task: `.agents/docs/tasks/todo-0001-0001-create-todo.md`
+> Updated: 2026-09-08
+> Related Task: `.agents/docs/tasks/wip-0001-0001-create-todo.md`
 
 ## Problem Statement
+
+Todo is the primary product. These requirements govern its full-stack behavior across domain, application, HTTP, persistence, and Vanilla JavaScript layers. The previously started tutor website is deferred and outside the active Todo scope.
 
 The project needs a small but real Todo product surface that can teach backend boundaries end to end: business rules, application use cases, HTTP contracts, persistence adapters, database behavior, and a Vanilla JavaScript client.
 
@@ -45,6 +47,8 @@ The learning goal is not maximum CRUD speed. Each feature should make ownership 
 - [ ] The persistence adapter can be exercised against PostgreSQL and later MySQL without changing domain policy.
 
 ## Non-Goals
+
+The following exclusions apply to the Todo sample, not to the separately scoped tutor platform:
 
 - Authentication or multi-user ownership in the initial learning project.
 - Hosted production deployment during the core Todo slices.

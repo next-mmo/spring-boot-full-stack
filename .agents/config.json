@@ -8,18 +8,25 @@
       "todo-adapter-persistence/**",
       "todo-adapter-web/**",
       "todo-boot/**",
-      "frontend/**"
+      "frontend/**",
+      "tutor-*/**",
+      "learning/**"
     ],
     "tests": [
       "**/src/test/**",
       "frontend/**/*.test.*",
-      "frontend/**/*.spec.*"
+      "frontend/**/*.spec.*",
+      "tutor-frontend/**/*.test.*",
+      "tutor-frontend/**/*.spec.*",
+      "learning/**/*.test.*",
+      "learning/**/*.spec.*"
     ],
     "docs": [
       "README.md",
       "AGENT-QUICKSTART.md",
       "docs/**",
-      ".agents/docs/**"
+      ".agents/docs/**",
+      "learning/**/*.md"
     ],
     "workflow": [
       "AGENTS.md",
@@ -34,15 +41,15 @@
     "build": [
       "pom.xml",
       "**/pom.xml",
-      "package.json",
-      "package-lock.json",
+      "**/package.json",
+      "**/package-lock.json",
       "compose.yaml",
       "Dockerfile*",
       "**/Dockerfile*"
     ]
   },
   "checks": {
-    "test": "mvn test",
+    "test": "mvn test && npm run tutor:test",
     "build": "mvn -DskipTests package",
     "workflow": "npm run workflow:check --"
   },

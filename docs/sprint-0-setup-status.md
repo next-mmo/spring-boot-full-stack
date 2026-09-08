@@ -1,5 +1,7 @@
 # Sprint 0 Setup Status
 
+Historical bootstrap record. Current product scope and active work are in [CONTEXT.md](../CONTEXT.md); the Tutor Website foundation is active, and Todo implementation is deferred. Environment/version observations below describe their original session, not current verification.
+
 ## Prepared
 
 - Maven parent reactor with five backend modules
@@ -89,4 +91,4 @@ Record exact results as evidence. A successful workflow `doctor` proves workflow
 
 ## Repository status
 
-Sprint 0 and Agent Workflow Scrum are stored in `next-mmo/spring-boot-full-stack`. The next product slice is Create Todo, after the remaining Maven/runtime checks are verified and accepted.
+Sprint 0 and Agent Workflow Scrum are stored in `next-mmo/spring-boot-full-stack`. Create Todo was selected after bootstrap; consult the [deferred sample task](../.agents/docs/tasks/todo-0001-0001-create-todo.md) for subsequent domain/application evidence and the resume point. This record does not establish current CI or runtime acceptance.

@@ -1,5 +1,7 @@
 # Development
 
+These commands operate the full-stack Todo product and repository workflow. The tutor website foundation is preserved but deferred; do not add provider, lesson, or tutor UI work unless the human explicitly reactivates it.
+
 ## Prerequisites
 
 - Git
@@ -34,7 +36,7 @@ For non-trivial work, generate bounded context before editing:
 npm exec -- agent-workflow context -- "<task description>"
 ```
 
-Do not copy the workflow package, plugins, or skills into this repository. The project-owned workflow state is `AGENTS.md`, `CONTEXT.md`, `.agents/config.json`, and `.agents/docs/`.
+Do not copy the installed workflow package, plugins, or their skills into this repository. Project-owned workflow state includes `AGENTS.md`, `CONTEXT.md`, `.agents/config.json`, `.agents/docs/`, and explicitly authored `.agents/skills/`. The `tutor` skill supports learning; `agent-workflow-feedback` captures and reuses package feedback in [local cases](feedback/agent-workflow/index.md). Neither is a vendored workflow skill.
 
 ## Maven reactor
 
@@ -77,6 +79,8 @@ docker compose down -v
 
 ## Backend runtime
 
+Startup runs the persistence module's Flyway migrations before database use. `V1__create_todos.sql` creates `todos` in a fresh schema; Flyway records the applied version. Existing unmanaged schemas require deliberate migration planning. Startup does not enable automatic baselining or erase existing tables.
+
 Build and run the composition-root JAR:
 
 ```bash
@@ -100,6 +104,16 @@ python3 -m http.server 5173
 ```
 
 Open `http://localhost:5173`.
+
+## Deferred tutor foundation
+
+Start the Vite development server from the repository root so the tutor can load its versioned lesson content:
+
+```bash
+npm run dev
+```
+
+Open `http://localhost:5173/tutor-frontend/`. Run the deterministic state/content checks with `npm run tutor:test`. This path does not connect to an LLM, store provider keys, or prove backend/provider acceptance.
 
 ## Before handoff
 

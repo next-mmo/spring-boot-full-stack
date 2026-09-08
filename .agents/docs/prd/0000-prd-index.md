@@ -1,13 +1,14 @@
 # Product Requirements Index
 
 > Status: living doc
-> Updated: 2026-09-07
+> Updated: 2026-09-08
 
 ## PRD Index
 
 | PRD | Title | Status | Summary |
 | :--- | :--- | :--- | :--- |
-| [PRD-0001](0001-todo-core.md) | Todo Core | draft | Core Todo lifecycle and Clean Architecture learning requirements; Create Todo is the first slice. |
+| [PRD-0001](0001-todo-core.md) | Todo Core | draft | Primary product: full-stack Todo application; Create Todo is the active vertical slice. |
+| [PRD-0002](0002-full-stack-tutor.md) | Full-Stack Tutor Website | draft | Deferred direction; offline tutor foundation and evidence are preserved but no longer active. |
 
 ## Authority
 

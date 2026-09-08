@@ -1,6 +1,16 @@
-# Spring Boot Full-Stack Todo
+# Full-Stack Todo Application
 
-A hands-on learning project for a **senior front-end developer** moving into full-stack Java development with real production-oriented structure.
+A full-stack Todo application using Java/Spring Boot, PostgreSQL, Clean Architecture, and a Vanilla JavaScript client. The previously started tutor UI is preserved as deferred work and is not part of the active product scope.
+
+## Current status
+
+The active Create Todo slice now connects the domain model and application use case to PostgreSQL, `POST /api/todos`, and the Vanilla JavaScript form. The tutor's offline foundation is preserved with its evidence ledger, but live provider connection, server sessions, and tutor backend work are deferred. Human acceptance of the Todo slice remains pending.
+
+- [Todo requirements](.agents/docs/prd/0001-todo-core.md)
+- [Active Create Todo task and learning checkpoint](.agents/docs/tasks/wip-0001-0001-create-todo.md)
+- [Deferred tutor requirements and plan](.agents/docs/prd/0002-full-stack-tutor.md)
+
+The setup below runs the Todo application. The preserved tutor foundation is a separate static site and does not prove end-to-end Todo behavior. See [development](.agents/docs/development.md) and [verification](.agents/docs/testing.md) for current commands.
 
 ## Stack
 
@@ -13,7 +23,7 @@ A hands-on learning project for a **senior front-end developer** moving into ful
 - Vanilla JavaScript
 - Agent Workflow Scrum
 
-## Architecture
+## Existing Todo sample structure
 
 ```text
 spring-boot-full-stack/
@@ -121,11 +131,23 @@ python3 -m http.server 5173
 
 Open `http://localhost:5173`.
 
-The frontend is intentionally minimal in Sprint 0. API integration starts in the **Create Todo** vertical slice.
+The frontend is intentionally minimal in Sprint 0. The Create Todo slice submits JSON to `POST /api/todos`, displays the saved title and identifier, and displays the stable API error message for invalid titles.
 
-## What we build next
+### Run the tutor foundation
 
-The first product slice is **Create Todo**:
+From the repository root, start the Vite development server so its lesson JSON can be loaded:
+
+```bash
+npm run dev
+```
+
+Open `http://localhost:5173/tutor-frontend/`. This mode is intentionally offline: it stores only learner progress in browser storage and does not accept or send provider credentials.
+
+## Next milestones
+
+The active product milestone is the Create Todo vertical slice: HTTP request/response mapping, persistence, and the minimal browser create flow. Listing, state changes, editing, deletion, filtering, portability, and production-readiness follow in later Todo slices.
+
+The sample's unfinished **Create Todo** slice remains:
 
 ```text
 POST /api/todos
@@ -137,6 +159,6 @@ POST /api/todos
     -> PostgreSQL
 ```
 
-We will implement it one layer at a time and test the behavior, not just the annotations.
+Resume sample implementation from its preserved task checkpoint. Keep sample requirements separate from tutor requirements.
 
 See [`docs/learning-roadmap.md`](docs/learning-roadmap.md).

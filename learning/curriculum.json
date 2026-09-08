@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "title": "Full-Stack Tutor Pilot",
+  "lessons": [
+    {
+      "id": "orientation",
+      "version": 1,
+      "title": "Orientation: from a click to a Todo",
+      "level": "beginner",
+      "prerequisites": [],
+      "source": "lessons/orientation.json"
+    },
+    {
+      "id": "todo-title-validation",
+      "version": 1,
+      "title": "Todo rules: a title needs meaning",
+      "level": "beginner",
+      "prerequisites": ["orientation"],
+      "source": "lessons/todo-title-validation.json"
+    }
+  ]
+}

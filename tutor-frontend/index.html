@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Offline practice pilot for the Full-Stack Tutor">
+  <link rel="icon" href="data:,">
+  <title>Full-Stack Tutor — Pilot</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./">Full-Stack Tutor</a>
+    <span class="status-pill" id="connection-status">Offline practice</span>
+  </header>
+
+  <main class="page-shell">
+    <section class="hero" aria-labelledby="page-title">
+      <p class="eyebrow">TODO SAMPLE · PILOT FOUNDATION</p>
+      <h1 id="page-title">Learn by making one small thing work.</h1>
+      <p class="hero-copy">Start with a familiar Todo, make a prediction, try it, and explain what changed. You can practice without an AI key; the live provider connection is the next slice.</p>
+    </section>
+
+    <section class="card" id="onboarding-card" aria-labelledby="onboarding-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">01 · STARTING POINT</p>
+          <h2 id="onboarding-title">Tell the tutor where to begin</h2>
+        </div>
+        <span class="step-count">2 lessons</span>
+      </div>
+      <form id="onboarding-form" class="form-grid">
+        <label>
+          Experience
+          <select name="experience" required>
+            <option value="beginner">I am new to programming</option>
+            <option value="some-coding">I know some coding</option>
+            <option value="experienced">I build software already</option>
+          </select>
+        </label>
+        <label>
+          Goal
+          <select name="goal" required>
+            <option value="build-todo">Build a Todo feature</option>
+            <option value="understand-architecture">Understand full-stack architecture</option>
+            <option value="practice-javascript">Practice browser JavaScript</option>
+          </select>
+        </label>
+        <label>
+          Session length
+          <select name="sessionMinutes" required>
+            <option value="15">15 minutes</option>
+            <option value="20" selected>20 minutes</option>
+            <option value="30">30 minutes</option>
+          </select>
+        </label>
+        <label>
+          Language
+          <select name="language" required>
+            <option value="English">English</option>
+          </select>
+        </label>
+        <button class="primary-button" type="submit">Begin orientation</button>
+      </form>
+    </section>
+
+    <section class="learning-layout" id="learning-area" hidden>
+      <aside class="card progress-card" aria-labelledby="progress-title">
+        <div class="section-heading compact">
+          <div>
+            <p class="eyebrow">YOUR PATH</p>
+            <h2 id="progress-title">Progress</h2>
+          </div>
+          <span id="progress-count">0 / 2</span>
+        </div>
+        <ol class="lesson-list" id="lesson-list"></ol>
+        <div class="data-actions">
+          <button class="text-button" id="export-progress" type="button">Export progress</button>
+          <label class="text-button file-button">Import progress<input id="import-progress" type="file" accept="application/json"></label>
+          <button class="text-button danger-button" id="reset-progress" type="button">Reset</button>
+        </div>
+        <p class="fine-print">Progress is stored in this browser only. API keys are never stored or exported.</p>
+      </aside>
+
+      <section class="card lesson-card" aria-labelledby="lesson-title">
+        <div class="lesson-meta"><span id="lesson-level">FOUNDATION</span><span id="lesson-version">LESSON 1 · V1</span></div>
+        <h2 id="lesson-title"></h2>
+        <p class="outcome" id="lesson-outcome"></p>
+        <div class="concept-box">
+          <p class="eyebrow">THE IDEA</p>
+          <p id="lesson-concept"></p>
+        </div>
+        <div class="terms" id="lesson-terms"></div>
+        <div class="practice-box">
+          <p class="eyebrow">YOUR TURN</p>
+          <p id="lesson-prompt"></p>
+          <label for="learner-answer">Your answer</label>
+          <textarea id="learner-answer" rows="4" placeholder="Write a short prediction in your own words..."></textarea>
+          <div class="button-row">
+            <button class="secondary-button" id="hint-button" type="button">Give me a hint</button>
+            <button class="secondary-button" id="example-button" type="button">Show an example</button>
+            <button class="primary-button" id="complete-lesson" type="button">I can explain it</button>
+          </div>
+          <p class="feedback" id="lesson-feedback" role="status" aria-live="polite"></p>
+        </div>
+        <div class="transfer-box">
+          <p class="eyebrow">TRANSFER</p>
+          <p id="lesson-transfer"></p>
+        </div>
+      </section>
+
+      <aside class="card tutor-card" aria-labelledby="tutor-title">
+        <div class="section-heading compact">
+          <div>
+            <p class="eyebrow">LOCAL TUTOR</p>
+            <h2 id="tutor-title">Practice mode</h2>
+          </div>
+          <span class="status-dot">●</span>
+        </div>
+        <p class="notice">This scripted tutor is available offline. Live OpenAI-compatible provider setup comes in the next backend slice.</p>
+        <div class="chat-log" id="chat-log" aria-live="polite"></div>
+        <form id="chat-form" class="chat-form">
+          <label class="sr-only" for="chat-input">Ask the local tutor</label>
+          <input id="chat-input" autocomplete="off" placeholder="Ask about this lesson...">
+          <button class="primary-button" type="submit">Ask</button>
+        </form>
+      </aside>
+    </section>
+
+    <section class="card exercise-card" id="exercise-area" aria-labelledby="exercise-title" hidden>
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">BROWSER PRACTICE · 02</p>
+          <h2 id="exercise-title">Try the Todo title rule</h2>
+        </div>
+        <span class="step-count">No server needed</span>
+      </div>
+      <p>Enter a title, then check the same kind of rule the Todo domain applies. The exercise changes a local preview only; it does not call the API or save a credential.</p>
+      <div class="exercise-layout">
+        <div>
+          <label for="todo-title">Todo title</label>
+          <input id="todo-title" maxlength="200" placeholder="Try:  Buy milk  ">
+          <div class="button-row">
+            <button class="primary-button" id="check-title" type="button">Check title</button>
+            <button class="secondary-button" id="use-example" type="button">Use example</button>
+          </div>
+          <p class="feedback" id="exercise-feedback" role="status" aria-live="polite"></p>
+        </div>
+        <div class="preview-wrap">
+          <p class="eyebrow">OBSERVABLE OUTPUT</p>
+          <iframe id="todo-preview" title="Todo preview" sandbox="" loading="lazy"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

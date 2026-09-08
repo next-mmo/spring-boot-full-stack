@@ -4,6 +4,7 @@
 
 # Node / workflow CLI
 node_modules/
+dist/
 npm-debug.log*
 
 # IDE

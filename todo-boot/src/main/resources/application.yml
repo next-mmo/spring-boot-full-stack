@@ -7,6 +7,7 @@ spring:
     password: ${TODO_DB_PASSWORD:todo}
 
 mybatis-plus:
+  type-handlers-package: com.peopleinfo.todo.persistence.typehandler
   configuration:
     map-underscore-to-camel-case: true
 

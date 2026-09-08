@@ -1,0 +1,18 @@
+{
+  "id": "orientation",
+  "version": 1,
+  "level": "beginner",
+  "title": "Orientation: from a click to a Todo",
+  "outcome": "Explain that a browser event can produce a request, and that the server returns data the browser can show.",
+  "concept": "A full-stack feature crosses boundaries. The browser handles interaction, the server handles application decisions, and a response carries the result back.",
+  "terms": [
+    {"term": "browser", "meaning": "The program where the learner sees and interacts with the website."},
+    {"term": "server", "meaning": "A program that receives requests and applies application rules."},
+    {"term": "request", "meaning": "A message asking another program to do something or return data."},
+    {"term": "response", "meaning": "The result sent back after a request is handled."}
+  ],
+  "prompt": "What do you think should happen after a learner presses “Add Todo”?",
+  "hint": "Start with the visible action. Then name the message that could travel to the server and the result that could come back.",
+  "example": "The browser reads the title, sends a request, the server applies the Todo rule, and the browser shows the saved Todo.",
+  "transfer": "Name one other button in an app that could follow the same browser → request → response path."
+}

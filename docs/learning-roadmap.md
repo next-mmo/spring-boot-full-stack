@@ -1,5 +1,9 @@
 # Learning Roadmap
 
+This is the Todo product roadmap. The Tutor Website is deferred; its [foundation/pilot task](../.agents/docs/tasks/todo-0002-0002-tutor-website-foundation.md) and evidence are preserved. The active [Create Todo task](../.agents/docs/tasks/wip-0001-0001-create-todo.md) contains the learner checkpoint and current implementation evidence.
+
+The current learner is an experienced frontend developer who prefers assistant implemented code with explanations. Lessons introduce requests/responses, Java boundaries, persistence, and tests in small vertical slices. The preserved tutor plan and lesson catalog are outside active Todo product scope.
+
 ## Sprint 0 — Bootstrap
 
 Outcome: a runnable multi-module project with visible architecture boundaries and reproducible workflow tooling.

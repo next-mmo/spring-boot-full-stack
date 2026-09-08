@@ -4,13 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Todo Learning App</title>
+  <link rel="icon" href="data:,">
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
   <main class="shell">
-    <p class="eyebrow">SPRINT 0</p>
+    <p class="eyebrow">CREATE TODO</p>
     <h1>Todo</h1>
-    <p id="status">Frontend scaffold is ready. The Create Todo slice comes next.</p>
+    <p id="status" role="status">Add a task to save it in PostgreSQL.</p>
+    <form id="todo-form">
+      <label for="title">Title</label>
+      <div class="form-row">
+        <input id="title" name="title" type="text" autocomplete="off" required>
+        <button type="submit">Add Todo</button>
+      </div>
+    </form>
+    <article id="created-todo" class="todo-card" hidden>
+      <p class="eyebrow">SAVED</p>
+      <h2 id="created-title"></h2>
+      <p id="created-id"></p>
+    </article>
   </main>
   <script type="module" src="./app.js"></script>
 </body>

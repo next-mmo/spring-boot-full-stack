@@ -2,14 +2,20 @@
   "name": "spring-boot-full-stack-learning",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "description": "Workflow tooling for the Spring Boot full-stack Todo learning project",
   "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
     "workflow:init": "agent-workflow init --existing",
     "workflow:doctor": "agent-workflow doctor",
     "workflow:skills": "agent-workflow skills --json",
-    "workflow:check": "agent-workflow check"
+    "workflow:check": "agent-workflow check",
+    "tutor:test": "node --test tutor-frontend/state.test.mjs learning/curriculum.test.mjs"
   },
   "devDependencies": {
-    "@next-mmo/agent-workflow-scrum": "git+https://github.com/next-mmo/agent-dev-workflow.git#8ebb2b220b624693a4b3c769c34aa873d2e79462"
+    "@next-mmo/agent-workflow-scrum": "git+https://github.com/next-mmo/agent-dev-workflow.git#c397d42f14c3af973cc67b7b6f14ca7d2e942916",
+    "vite": "^8.2.2"
   }
 }

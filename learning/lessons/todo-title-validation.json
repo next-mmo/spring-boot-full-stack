@@ -1,0 +1,17 @@
+{
+  "id": "todo-title-validation",
+  "version": 1,
+  "level": "beginner",
+  "title": "Todo rules: a title needs meaning",
+  "outcome": "Predict and verify what happens when a Todo title is empty or contains surrounding whitespace.",
+  "concept": "A domain invariant is a business rule that must always be true. The Todo domain trims a title and rejects it when nothing meaningful remains.",
+  "terms": [
+    {"term": "invariant", "meaning": "A rule that must remain true whenever valid business data exists."},
+    {"term": "domain", "meaning": "The part of an application that owns business concepts and rules."},
+    {"term": "trim", "meaning": "Remove whitespace from the beginning and end of text."}
+  ],
+  "prompt": "Try a title made only of spaces. Should the application create it? Why?",
+  "hint": "Imagine showing a Todo row whose title has no visible characters. What useful information would it contain?",
+  "example": "The domain trims the input first. A title such as “  Buy milk  ” becomes “Buy milk”; a spaces-only title is rejected.",
+  "transfer": "Which layer should own this rule: the browser, the database, or the domain? Explain your choice."
+}

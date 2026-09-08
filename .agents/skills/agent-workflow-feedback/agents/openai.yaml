@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Workflow Feedback"
+  short_description: "Capture workflow gaps and reuse prior lessons"
+  default_prompt: "Use $agent-workflow-feedback to consult relevant saved cases, handle the current workflow situation, and record new evidence or upstream suggestions."
